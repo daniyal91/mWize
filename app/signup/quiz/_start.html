@@ -1,0 +1,25 @@
+<div class="row row-centered">
+	<div class="col-md-9 col-centered">
+		<h1>Areas of Expertise :</h1>
+			<ul>
+				<li ng-repeat='category in categoriesForTest'>{{category.name}}</li>
+			</ul>
+
+		<p>
+			Please Take this short technical quiz so we can guage what level of expert you are.
+		</p>
+		<div class="well">
+			<ul>
+				<li>There are a total of 20 Multiple choice questions in each category</li>
+				<li>You will have two minutes to answer each question</li>
+				<li>You will need a score of 80% to qualify as category expert</li>
+			</ul>
+		</div>
+		<div class="row row-centered">
+			<div class="col-md-4 col-centered">
+				<button class="btn btn-default">CANCEL</button>
+				<button class="btn btn-info" ng-click="startQuiz()">START TEST NOW</button>
+			</div>
+		</div>
+	</div>
+</div>

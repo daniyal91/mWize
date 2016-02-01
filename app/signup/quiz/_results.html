@@ -1,0 +1,47 @@
+<div class="row row-centered" style="margin-top:100px">
+	<div class="col-md-9 col-centered" style="border:solid 1px #ccc">
+		
+
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Areas of Expertise > {{currentCategory.name}}</h3>
+			</div>
+		</div>
+		<div class="row row-centered">
+			<div class="col-md-5 col-centered">
+				
+				<h1 ng-if="quizService.correctAnswers>quizService.incorrectAnswers">Congratulations!</h1>
+				<h1 ng-if="quizService.correctAnswers<quizService.incorrectAnswers">Sorry!</h1>
+			</div>
+		</div>
+		<div class="row row-centered">
+			<div class="col-md-11 col-centered">
+				<div class="well">
+					<div class="row">
+					<div class="col-md-5" style="border-right:solid 1px #ccc">
+						<h3>Test Results</h3>
+						Correct Answers: <span style="color:green">{{quizService.correctAnswers}} <span class="fa fa-check"></span></span><br />
+						Wrong Answers: <span style="color:red">{{quizService.incorrectAnswers}} <span class="fa fa-times"></span></span>
+					</div>
+					<div ng-if="quizService.correctAnswers>=quizService.incorrectAnswers" class="col-md-7">
+						<h3>Welcome To The Team</h3>
+						Please log into the expert portal to get access to the tools and information you will need to be an mWise Mobile Expert.
+					</div>
+					<div ng-if="quizService.correctAnswers<quizService.incorrectAnswers" class="col-md-7">
+						<h3>You failed your test</h3>
+						Please try again in one month.
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-centered">
+			<div class="col-md-2 col-centered">
+				<button ng-if="quizService.correctAnswers>quizService.incorrectAnswers" class="btn btn-info" ng-click="closeQuiz()">LOGIN INTO EXPERT PORTAL</button>
+				<button ng-if="quizService.correctAnswers<quizService.incorrectAnswers" class="btn btn-info" ng-click="closeQuiz()">CLOSE</button>
+			</div>
+		</div>
+		<div class="row">&nbsp;</div>
+
+	</div>
+</div>

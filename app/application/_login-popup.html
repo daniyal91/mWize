@@ -1,0 +1,56 @@
+<!-- <div id="modalMain" class="modal-header">
+  <h3 class="modal-title">Login</h3>
+</div>
+<div class="modal-body">
+  <div class="alert alert-danger alert-dismissible" role="alert" ng-if='loginError.invalidCredentials'>
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" ng-click="loginError.invalidCredentials = !loginError.invalidCredentials">&times;</span><span class="sr-only">Close</span></button>
+    Invalid Email or Password.
+  </div>
+
+  <form role="form" name="loginForm" class="well1" ui-keypress="{13:'ok()'}">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model='email' validation-check="Email is invalid." required/>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model='password' required/>
+      <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="validation-error" class="validation-error">Password should not be empty.</p>
+    </div> -->
+
+<!--     <button style="margin-top:25px;" type="submit" class="btn btn-block btn-success" btn-process='login()' ng-disabled="!isValidForm || loginForm.password.$error.required">Login</button>
+ -->  <!-- </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" ng-disabled="!isValidForm || loginForm.password.$error.required" ng-click="ok()">Login</button>
+  <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+</div> -->
+
+<div class="modal-header login-header text-center">
+  <button type="button" class="close" data-dismiss="modal" ng-click='cancel()'><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <img src="/assets/images/mwize-logo.png">
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form role="form" name="loginForm" class="custom-offset col-md-9 text-center">
+      <div class="form-group">
+        <input type="email" name="email" class="semi-bold form-control input-login-email" id="exampleInputEmail1" placeholder="Email" ng-model='credentials.email' validation-check="Please enter a valid email" validation-style="style-1" required>
+      </div>
+      <p ng-show="(passEmpty = (loginForm.password.$invalid && !loginForm.password.$pristine))" class="validation-error text-left invalid-passowrd-error" class="validation-error">Please enter a valid password</p>
+      <div class="form-group help-wrap">
+        <input type="password" name="password" class="semi-bold form-control" id="exampleInputPassword1" placeholder="Password" ng-model='credentials.password' required>
+        <a href="" class="help-icon" tooltip="Password Hint" tooltip-trigger="mouseenter" tooltip-placement="top"></a>
+      </div>
+      <div class="alert alert-danger" role="alert" ng-if='loginError.invalidCredentials'>
+      <button type="button" class="close custom-login-close" data-dismiss="alert"></button>
+      Invalid Email or Password.
+    </div>
+      <button type='submit' class="btn btn-lg btn-big login btn-default text-uppercase semi-bold button-resizing" ng-disabled="!isValidForm || loginForm.password.$error.required" ng-click="login(credentials)">Login</button>
+      <h4 class="text-center top-margin"><a href="" class="blue-color" ng-click='forgotPassword()'>Forgot Password</a></h4>
+    </form>
+  </div>
+</div>
+<div class="modal-footer text-center">
+  <h3 class="text-center blue-color remove-space semi-bold">New to mWize? <a href="" class="orange-color left-spacer" ng-click='consumerSignup()'>Signup</a></h3>
+</div>

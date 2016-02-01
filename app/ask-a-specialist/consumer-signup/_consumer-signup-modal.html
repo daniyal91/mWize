@@ -1,0 +1,51 @@
+<div ng-hide='emailSent'>  
+  <div class="modal-header text-center">
+    <button type="button" class="close" data-dismiss="modal" ng-click='cancel()'><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <img src="/assets/images/mwize-logo.png">
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div  class="custom-offset col-md-9 text-center">
+        <h3 class="blue-color text-uppercase remove-space"><strong>Signup Absolutely Free!</strong></h3>
+        <p class="blue-color">
+          No credit card needed.
+        </p>
+        <form role="form">
+          <div class="form-group">
+            <input type="email" ng-change="RemoveError()" class="form-control semi-bold" id="exampleInputEmail1" placeholder="Your Email Address" ng-model='credentials.email' validation-check="Email is invalid." activate-on="keyup" required>
+          </div>
+          <p ng-show='duplicateEmailError' class='validation-error'>Email has already been taken</p>
+          <!-- <button type="submit" class="btn btn-lg btn-big login btn-default text-uppercase semi-bold" ng-disabled="!isValidForm" ng-click='forgotPassword(credentials.email)'>Reset Password</button> -->
+          <button type="submit" class="btn btn-lg btn-big login btn-default text-uppercase semi-bold sign-up-resizing" ng-disabled="!isValidForm" btn-process='signup(credentials.email)'>Signup Free</button>
+          <p class="tearms-warp-top"><small class="tearms-services">By clicking "Signup Free" I agree to mWize's <a href=""><u>Terms of Services</u></a> </small></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <h3 class="text-center blue-color remove-space semi-bold">Already have an account?<a href="" class="orange-color left-spacer" ng-click='ok()'>Login</a></h3>
+  </div>
+</div>
+
+<div ng-show='emailSent'>
+  <div class="modal-header text-center">
+    <button type="button" class="close" data-dismiss="modal" ng-click='cancel()'><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h2 class="blue-color text-uppercase remove-space"><strong>Thank You!</strong></h2>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div  class="custom-offset col-md-9 text-center">
+        <p class="blue-color">
+          We just sent you a confirmation email along with your temporary password.
+        </p>
+        <form role="form">
+          <button type="submit" class="btn btn-lg btn-big login btn-default text-uppercase semi-bold" ng-click='ok()'>Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="modal-footer text-center">
+    <p class="text-center blue-color remove-space">If you have problems accessing your account, please contact us at <a href=""><strong>support@mwize.com.</strong></a></p>
+  </div>
+</div>

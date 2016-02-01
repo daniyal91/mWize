@@ -1,0 +1,33 @@
+<a href='' ng-click='toggleArticleDetail()'>Back to article listing</a>
+<br>
+<div class='col-sm-9'>
+  <h3> Title: </h3>
+  <!-- <input type='text' ng-model='selectedArticle.title' class='form-control' ng-if='selectedArticle.article_creator.email === user.email && userRole.name==="writer"'></input>
+  <input type='text' ng-model='selectedArticle.title' class='form-control' ng-if='userRole.name==="editor"'></input>
+  <p ng-if='selectedArticle.article_creator.email != user.email && userRole.name==="writer"'>{{selectedArticle.title}}</p> -->
+  <input type='text' ng-model='selectedArticle.title' class='form-control'></input>
+
+  <h3> Detail: </h3>
+  <!-- <text-angular id="description" rows="10" placeholder="Detail..." ng-model="selectedArticle.detail" ng-if='selectedArticle.article_creator.email === user.email && userRole.name==="writer"'></text-angular>
+  <text-angular id="description" rows="10" placeholder="Detail..." ng-model="selectedArticle.detail" ng-if='userRole.name==="editor"'></text-angular>
+  <p ng-if='selectedArticle.article_creator.email != user.email && userRole.name==="writer"' ng-bind-html='selectedArticle.detail'></p> -->
+  <text-angular id="description" rows="10" placeholder="Detail..." ng-model="selectedArticle.detail"></text-angular>
+
+  <p ng-if='selectedArticle.status==="waiting" && userRole.name==="writer"'><i>Your article has been submitted for approval.</i></p>
+  <br>
+  <!-- <a href='' class='btn btn-primary' ng-if='selectedArticle.article_creator.email === user.email && userRole.name==="writer"' ng-click='updateArticle(selectedArticle)'>Save</a>
+  <a href='' class='btn btn-primary' ng-if='userRole.name==="editor"' ng-click='updateArticle(selectedArticle)'>Save</a> -->
+  <a href='' class='btn btn-primary' ng-click='updateArticle(selectedArticle)'>Save</a>
+
+  <!-- <a href='' class='btn btn-warning' ng-if='selectedArticle.article_creator.email === user.email && selectedArticle.status==="draft" && userRole.name==="writer"' ng-click='submitForApproval(selectedArticle)'>Submit for approval</a> -->
+  <a href='' class='btn btn-warning' ng-if='selectedArticle.status==="draft" && userRole.name==="writer"' ng-click='submitForApproval(selectedArticle)'>Submit for approval</a>
+
+  <!-- <a href='' class='btn btn-warning' ng-if='selectedArticle.status==="waiting" && userRole.name==="editor"' ng-click='approveArticle(selectedArticle)'>Approve</a> -->
+  <a href='' class='btn btn-warning' ng-if='selectedArticle.status==="waiting" && userRole.name==="editor"' ng-click='approveArticle(selectedArticle)'>Approve</a>
+</div>
+
+<div class='col-sm-3' ng-if='userRole.name==="writer"'>
+  <h3>Previous Versions</h3>
+  <a href='' ng-repeat='snapshot in articleSnapshots' ng-click='loadSnapshotDetails(snapshot)'><i class="fa fa-caret-right"></i>&nbsp;{{snapshot.created_at}} 
+  <span ng-class="snapshot.status=='published'?'label label-success':'label label-default'">{{snapshot.status | ucword}}</span><br></a>
+</div>

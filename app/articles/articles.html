@@ -1,0 +1,79 @@
+<div class="row" ng-controller="ArticlesCtrl" ng-init='getArticles()'>
+
+  <div ng-show='showArticles'>
+    <div class="col-md-3 sidebar">
+      <ul>
+        <li ng-if='userRole.name==="writer"'><a href="" ng-click='showArticlesByStatus("draft")'><span class="fa fa-file-o"></span>Drafts</a></li>
+        <li><a href="" ng-click='showArticlesByStatus("waiting")'><span class="fa fa-clock-o"></span>Waiting</a></li>
+        <li><a href="" ng-click='showArticlesByStatus("published")'><span class="fa fa-check"></span>Published</a></li>
+      </ul>
+    </div>
+
+    <div class='col-sm-9'>
+      <div class="row search-header">
+        <div class="col-md-3">
+          <h4 class="filter-title no-m pts">
+            Articles
+          </h4>
+          </div>
+          <div class="col-sm-offset-8 col-sm-1">
+            <a href='' ng-click='newArticle()'>New Article</a>
+          </div>
+      </div>    
+
+      <div ng-show="articleCreated">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          Article is saved.
+        </div>
+      </div>
+
+      <div ng-show="articleUpdated">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          Article is updated.
+        </div>
+      </div>
+
+      <div ng-show="articleForApproval">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          Article is submitted for approval.
+        </div>
+      </div>
+
+      <div ng-show="articleApproved">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          Article is approved.
+        </div>
+      </div>
+
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Detail</th>
+            <th>Created by</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="article in articles">
+            <td><a href='' ng-click='articleDetail(article)'> {{article.title}} </a></td>
+            <td ng-bind-html='article.detail | truncate'></td>
+            <td>{{article.article_creator.email}}</td>
+            <td><span ng-class="article.status=='published'?'label label-success':'label label-default'">{{article.status | ucword}}</span></td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div ng-show='newArticleForm' ng-include="'app/articles/_new-article.html'" class='col-sm-12'>
+  </div>
+
+  <div ng-show='showArticleDetails' ng-include="'app/articles/_article-detail.html'" class='col-sm-12'>
+  </div>
+
+</div>

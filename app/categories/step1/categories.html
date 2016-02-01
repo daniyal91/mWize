@@ -1,0 +1,55 @@
+<div class="col-md-12" ng-controller="CategoriesCtrl" ng-init="getCategories()">
+  <h2> Please select a category </h2>
+  <div class='col-sm-2'>
+    <ul class="list-group">
+      <li class="list-group-item" style="margin-top:10px;" ng-repeat='category in parentCategories'>
+        <i class="fa fa-{{category.icon}}"></i>
+        <a href='' ng-click='showDetails(category.id)'> {{category.name}} </a>
+        <span class='pull-right'><i class="fa fa-chevron-right"></i></span>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class='col-sm-2' ng-show='showCategoryDetails'>
+    <ul class="list-group">
+      <li class="list-group-item" style="margin-top:10px;" ng-repeat='subCategory in subCategories'>
+        <i class="fa fa-{{subCategory.icon}}"></i>
+        <a href='' ng-click='showSubcategoryDetails(subCategory)'>{{subCategory.name}}</a>
+        <span class='pull-right'><i class="fa fa-chevron-right"></i></span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-8" ng-show='showSubcatDetails'>
+    <div class="panel panel-default">
+      <div class="panel-heading">KB Aritcle 1</div>
+      <div class="panel-body">
+        This solution might resolve your problem. But if not you can always ask our experts about the solution.
+        <br />
+        <button class="btn btn-warning btn-xs">Read More</button>
+      </div>
+    </div>
+     <div class="panel panel-default">
+      <div class="panel-heading">KB Article 2</div>
+      <div class="panel-body">
+        This solution might resolve your problem. But if not you can always ask our experts about the solution.
+        <br />
+        <button class="btn btn-warning btn-xs">Read More</button>
+      </div>
+    </div>
+     <div class="panel panel-default">
+      <div class="panel-heading">KB Article 3</div>
+      <div class="panel-body">
+        This solution might resolve your problem. But if not you can always ask our experts about the solution.
+        <br />
+        <button class="btn btn-warning btn-xs">Read More</button>
+
+      </div>
+    </div>
+    Still need help?  
+    <button type="submit" class="btn btn-success" ng-click='askExpert(selectedSubcategory)'>Ask an Expert</button>
+  </div>
+
+
+</div>

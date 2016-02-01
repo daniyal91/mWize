@@ -1,0 +1,56 @@
+<div class="row row-space-zero" ng-controller="ExpertDashboardParentCtrl">
+	<div ng-include="'app/expert-dashboard/_panel-left.html'"></div>
+	<div ng-include="'app/expert-dashboard/_panel-center.html'"></div>
+	<div ng-include="'app/expert-dashboard/_footer.html'"></div>
+</div>
+
+<script>
+	$(document).ready(function () {
+
+		function adjustPanelsHeight() {
+			var innerHeight = $(window).innerHeight();
+			$(".question-panel-set-height").height(innerHeight - 274);
+			$(".right-panel-question").height(innerHeight - 274);
+			$(".chat-box-scroll").css({"min-height": (innerHeight - 284) + 'px'});
+		}
+
+		setTimeout(function () {
+			adjustPanelsHeight();
+		}, 500);
+
+		$(window).resize(function () {
+			adjustPanelsHeight();
+		});
+
+	});
+
+</script>
+
+<!--
+<div ng-controller="ExpertDashboardParentCtrl">
+<div class="col-md-3 nav-bg">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+
+	<div>
+		<h1>mWize Logo</h1>
+	</div>
+	
+	
+	<div class="row" ng-include="'app/expert-dashboard/_panel-left.html'"></div>
+	
+</div>
+<div class="col-md-9">
+	
+	<div ng-include="'app/expert-dashboard/_panel-center.html'"></div>
+	
+</div>
+
+
+
+<div ng-include="'app/expert-dashboard/_footer.html'"></div>
+
+
+</div>
+-->

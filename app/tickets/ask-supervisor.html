@@ -1,0 +1,29 @@
+<div id="modalMain" class="modal-header">
+  <h3 class="modal-title">Ask Colleague</h3>
+</div>
+<div class="modal-body">
+  <div>
+    <div>
+      <span>Select the Expert</span>
+      <input class="form-control" ng-model="selectedExpert" typeahead="user as user.email for user in data.otherExpertUsers  | filter:$viewValue | limitTo:8" />
+<!--       <select class='form-control' placeholder="Select the Expert" ng-options='user.first_name for user in data.otherExpertUsers track by user.id' ng-model='selectedExpert'>
+      </select>
+ -->    </div>
+    <div>
+      <span>Select the Activity</span>
+      <select class='form-control' placeholder="Select the Activity" ng-model="expertActivity">
+        <option>Ask</option>
+        <option>Assign</option>
+      </select>
+    </div>
+  </div>
+  <h6>Subject: {{data.selectedTicket.subject}}</h6>
+  <div class="well">
+    <span>{{data.selectedTicket.content}}</span>
+  </div>
+  <h6>By {{data.selectedTicket.ticket_creator}} on {{data.selectedTicket.created_at}}</h6>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Confirm</button>
+  <button class="btn btn-danger" ng-click="cancel()">Skip</button>
+</div>

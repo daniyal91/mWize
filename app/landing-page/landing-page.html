@@ -1,0 +1,52 @@
+<div class="col-md-12" data-ng-controller="LandingPageCtrl">
+ 
+    <!-- home content starts -->
+    <section class="home-content">
+        <div>
+            <!-- search section -->
+            <form class="form-horizontal" role="form">
+            <!-- 
+                <div class="search form-group">
+                    <input data-ng-model="ask.question" type="text" placeholder="How can we help you with your mobile device ?" id="exampleInputEmail1" class="pull-left form-control">
+                    <button btn-process="submitQuestion()" class="btn btn-lg btn-default text-uppercase" type="submit">
+                        
+                    </button>
+                </div>
+            -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="input-group search form-group">
+	                    <input form-validation validation-min-length="20" validation-max-length="255"
+	                           data-ng-model="ask.question" type="text"
+	                           placeholder="How can we help you with your mobile device ?" id="askAQuestion"
+	                           class="form-control" required>
+
+	                      <span class="input-group-btn">
+	                        <button form-validation btn-process="submitQuestion()"
+	                                class="btn btn-lg btn-default text-uppercase" type="submit">
+		                        <strong>Ask a Specialist</strong>
+	                        </button>
+	                      </span>
+                    </div><!-- /input-group -->
+	                  <p class="blue-color ask-description"><strong>For best results, please include your device make, model, and wireless carrier.</strong></p>
+	                  <div ng-show="!inValidMinLength || !inValidMaxLength" class="validation-error">{{askAQuestion_error}}</div>
+
+	                  
+                  </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+
+            </form>
+            <!-- search section ends -->
+
+        </div><!-- container ends here -->
+    </section>
+    <!-- home content ends -->
+    <div class="home-footer navbar-fixed-bottom">
+        <div class="footer-inner">
+            <div class="container">
+                <img src="/assets/images/home/pic143.png" alt="" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+
+</div>

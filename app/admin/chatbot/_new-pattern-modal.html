@@ -1,0 +1,66 @@
+<div id="modalMain" class="modal-header">
+  <h3 class="modal-title">Add New Pattern</h3>
+</div>
+<div class="modal-body">
+  <div class="alert alert-danger alert-dismissible" role="alert" ng-if='loginError.invalidCredentials'>
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" ng-click="loginError.invalidCredentials = !loginError.invalidCredentials">&times;</span><span class="sr-only">Close</span></button>
+    Invalid Email or Password.
+  </div>
+
+  <form role="form" class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="priority">Priority:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="priority" placeholder="Set Priority 0 being the highest" ng-model='data.node.priority' />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="pattern">Pattern:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pattern" placeholder="Enter Pattern like *" ng-model='data.node.pattern' />
+      </div>
+    </div>
+    
+     
+    
+    <!-- <div class="form-group">
+      <label class="col-sm-2 control-label" for="ifid">If ID:</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
+        <i ng-show="loadingLocations" class="fa fa-refresh"></i>
+      </div>
+    </div> -->
+
+    <!-- <div class="form-group">
+      <label class="col-sm-2 control-label" for="ifid">If ID:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="ifid" placeholder="IFID" ng-model='ifid' />
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="skipif">Skip If Found Variable:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="skipif" placeholder="Skip if found this variable name" ng-model='data.node.skipif' />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="srai">SRAI Redirect:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="srai" placeholder="Redirect To Pattern like *" ng-model='data.node.srai' />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="template">Response Template:</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="template" placeholder="Your reply template here" ng-model='data.node.template' />
+      </div>
+    </div>
+  </form>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Add</button>
+  <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+</div>

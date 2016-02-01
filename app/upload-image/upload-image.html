@@ -1,0 +1,23 @@
+<div class="col-md-12 upload-form">
+    <form enctype='multipart/form-data' class="col-md-12">
+        <div class="input-labels">
+            Image Url:
+        </div>
+        <!--<input type="text" id="imageUrl" name="imageUrl" ng-model="imageUrl.url" placeholder="Image Url here..."-->
+               <!--class="col-md-12 form-control">-->
+        <input type="text" id="imageUrl" name="imageUrl"  ng-model="imageUrl.url" placeholder="Image Url here..."
+               class="col-md-12 form-control image-url-box">
+        <input type="button" ng-click="onFileSelect()" value="Submit" class="btn btn-default submit-url-btn">
+
+        <div class="input-labels separator-or">
+            OR
+        </div>
+
+        <div class="input-labels">
+            Upload Image
+        </div>
+        <input type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*" id="myImage" name="myImage" class="col-md-12 form-control">
+        <!--<input type="button" ng-click="uploadImage()" value="upload" class="btn btn-default upload-image-btn">-->
+    </form>
+</div>
+

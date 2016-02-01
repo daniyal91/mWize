@@ -1,0 +1,97 @@
+<div class="row" ng-controller="UserPanelCtrl">
+  <!-- user Profile -->
+  <section class="profile-main">
+    <div class="container">
+      <div class="profile-inner">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="media-img col-sm-3">
+                <span class="avatar-img" ng-click="editProfile()"><img class="round-img cursor-pointer" ng-src="{{avatar.url}}"></span>
+                <a href="" class="profile-edit" ng-click="editProfile()">Edit Profile</a>
+              </div>
+              <div class="media-body col-sm-9">
+                <h3 class="media-heading"><strong>{{user.username}}</strong></h3>
+                <!--<small class="green-txt green-text-space small-txt-b">Chat Name:</small>-->
+                <!--<h4><strong>{{user.username}}</strong></h4>-->
+                <small class="green-txt green-text-space small-txt-b">Email:</small>
+                <h4><strong>{{user.email}}</strong></h4>
+                <small ng-show="userProfile.city" class="green-txt green-text-space small-txt-b">Location:</small>
+                <h4 ng-show="userProfile.city"><strong>{{userProfile.city}}, {{userProfile.state}}</strong></h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="device-info-area" id="device-scroller" ng-show="deviceInfo" custom-scroller>
+                <div ng-repeat="device in deviceInfo" class="device-info-position">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <img alt="Device" ng-src="/assets/images/{{device.image_url}}.png" width="30" height="60">
+                    </div>
+                    <div class="col-sm-9">
+                      <a class="device-remove-cross" href="" ng-click="removeDevice(device)"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></a>
+                      <h4><strong>{{device.device_title}}</strong></h4>
+                      <h4><strong>{{device.name}} {{device.model}} <span ng-if="device.total_memory">/{{device.total_memory | number:0}}</span></strong></h4>
+                      <h4><strong>{{device.os}} {{device.os_version}}</strong></h4>
+                      <h4><strong>{{device.network_name}}</strong></h4>
+                      <small class="small-txt-b">{{device.percent_complete}}% Complete</small>
+                      <small><a href="" ng-click="editDevice(device)" class="profile-edit">Edit Device</a></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row add-device-row">
+              <a href="" class="color-grey-dark add-device" ng-click="addDevice()"><h4><span class="plus-icon"></span><strong>Add
+              Device</strong></h4> </a>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <h3 class="level-text"><strong>What is your level of knowledges?</strong></h3>
+
+            <div class="row knowledge-level custom-slider">
+              <div class="pull-left level-slider">
+                <div ui-slider="" min="0" max="2" ng-change="changeUserExpertiseLevel()" ng-model="expertiseLevel"
+                     class="ng-valid ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ng-dirty"
+                     aria-disabled="false"><div class="pointer-wrap"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div>
+                </div>
+              </div>
+              <div class="pull-left">
+                <h3 class="text-uppercase blue-color"><strong>{{levelOfKnowledge}}</strong></h3>
+              </div>
+            </div>
+            <div class="row text-center stats-wrap">
+              <div class="col-sm-4">
+                <div class="profile-level">
+                  <h2 class="blue-color"><strong>{{totalDevices ? totalDevices : 0}}</strong></h2>
+                  <small>Devices</small>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="profile-level">
+                  <h2 class="blue-color"><strong>{{totalQuestions ? totalQuestions : 0}}</strong></h2>
+                  <small>Questions</small>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="profile-level">
+                  <h2 class="blue-color"><strong>100</strong></h2>
+                  <small>Notifications</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row signout-position">
+        <div class="col-sm-offset-8 col-sm-4">
+          <a href="" class="profile-sign-out" ng-click="logout()">Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- user Profile ends -->
+</div>
+

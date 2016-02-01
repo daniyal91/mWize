@@ -1,0 +1,53 @@
+<div class="row row-centered" style="margin-top:100px">
+	<div class="col-md-9 col-centered" style="border:solid 1px #ccc">
+		
+
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Areas of Expertise > {{currentCategory.name}}</h3>
+				<div class="row">
+					<div class="pull-left" style="width:130px;margin-left:15px">
+					QUESTION {{quizService.currentPointer()+1}} OF {{quizService.totalQuestions()}}  
+					</div>
+					<div class="col-md-3">
+						<progressbar value="Math.ceil(((quizService.currentPointer()+1)/quizService.totalQuestions())*100)"></progressbar>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="pull-right" style="margin-top:10px">
+					<div class="pull-left" style="margin-top:30px;margin-right:5px">
+					<strong>Time Remaining</strong>
+					</div>
+					<div class="pull-right" style="height:100px">
+						<knob knob-data="knobData"></knob>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-4">
+						{{currentQuestion.question}}
+					</div>
+					<div class="col-md-8">
+						<img height="200" ng-src="assets/images/{{currentQuestion.image}}" />
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="pull-right" style="width:200px">
+					<button ng-repeat="(key, value) in currentQuestion.options" ng-click="selectAnswer(key,value)" class="btn btn-answer btn-primary">{{value}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">&nbsp;</div>
+	</div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row row-centered">
+	<div class="col-md-2 col-centered">
+		<button class="btn btn-info" ng-click="startQuiz()">SUBMIT AND CONTINUE</button>
+	</div>
+</div>

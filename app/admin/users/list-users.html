@@ -1,0 +1,56 @@
+<div class="panel panel-default col-md-12" ng-controller="UsersCtrl" ng-init="listExperts()">
+  <div class="panel-heading">
+    <b>Experts Listing</b>
+  </div>
+  <div class="panel-body">
+  <div>
+  <button class="btn btn-primary" ng-click="addNew()"><span class="fa fa-plus"></span> Add an Expert </button>
+  </div>
+  <br/>
+  <div class="row search-header">
+    <div class="col-md-9">
+      <h4>
+        Filtered {{filtered.length}} of {{totalExperts}} Experts
+      </h4>
+      </div>
+      <div class="col-md-3">
+      <form class="form-inline" accept-charset="UTF-8" method="get">
+        <div class="form-group">
+          <input ng-model="expert.query" typeahead="selected for selected in users.email | filter:$viewValue | limitTo:5" ng-change="filter()" class='form-control' placeholder='Search'>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped table-hover">
+      <thead ng-show='filtered.length>0'>
+        <tr>
+          <th style="width:33%;">
+            <a ng-click="sort_by('firstname');">First Name <i class="fa fa-sort"></i></a>
+          </th>
+          <th style="width:33%;">
+            <a ng-click="sort_by('lastname');">Last Name <i class="fa fa-sort"></i></a>
+          </th>
+          <th style="width:33%;">
+            <a ng-click="sort_by('email');">Email <i class="fa fa-sort"></i></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="expert in filtered =(experts | filter:{'email':expert.query} | orderBy: predicate :reverse ) | startFrom:(page.current-1)*page.items_per_page|limitTo:page.items_per_page">
+          <td>
+            {{expert.firstname}}
+          </td>
+          <td>
+            {{expert.lastname}}
+          </td>
+          <td>
+            {{expert.email}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pagination on-select-page="pageChanged(page)" page="page.current" total-items="page.total_items" boundary-links="true" items-per-page="page.items_per_page" ng-show='page.total_items>0' max-size="3" rotate="true"></pagination>
+  </div>
+</div>

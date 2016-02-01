@@ -1,0 +1,80 @@
+<div class="col-sm-3  left-col-fixed bg-blue">
+	<div class="dashboard-logo">
+		<img src="assets/images/dashboard-images.png" alt="">
+	</div>
+	<div class="switc-btn" ng-class="availabilityClass">
+		<input
+		bs-switch
+		ng-model="isSelected"
+		type="checkbox"
+		ng-change = "statusChanged()"
+		switch-active="true"
+		switch-readonly="false"
+		switch-size="{{ size }}"
+		switch-animate="{{ animate }}"
+		switch-label=" "
+		switch-icon="{{ icon }}"
+		switch-on-text=" UNAVAILABLE "
+		switch-off-text=" AVAILABLE "
+		switch-on-color="{{ on }}"
+		switch-off-color="{{ off }}"
+		switch-radio-off="isAvailable"
+		switch-label-width="{{ labelWidth }}"
+		switch-handle-width="{{ handleWidth }}"
+		switch-inverse="{{ inverse }}"
+		ng-true-value="true"
+		ng-false-value="false">
+	</div>
+
+	<div class="panel-left" ng-controller="ExpertDashboardLeftCtrl">
+		<div class="row nav-header-bar">
+			<div class="col-sm-8 ">
+				<h4>Active Questions</h4>
+			</div>
+			<div class="col-sm-4">
+				<div class="active-questions-counter clearfix">
+					<span class="counter pull-left">7</span>
+					<span class="right-arrow pull-left"></span>
+					<a href="" class="add-btn pull-left" ng-click="getAvailableTickets()"></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!--<div class="col-sm-8 " style="background-color:white;margin-top:5px;margin-left:15px" ng-show="ticketList.length==0">-->
+			<!--<strong>No Active Questions</strong>-->
+			<!--</div>-->
+
+			<ul id="device-scroller" class="question-panel question-panel-set-height" custom-scroller>
+				<li ng-show="ticketList.length==0" class="no-questions-text">
+					<strong>No Active Questions</strong>
+				</li>
+				<li ng-class="$parent.tickets[ticketId].ticketStatus.cssclass" ng-repeat="ticketId in $parent.ticketList">
+					<!--<div question-row ticket="tickets[ticketId]" click="openTicket(ticketId)"></div>-->
+					<div ng-click="openTicket(ticketId)">
+						<span class="active-bar"></span>
+						<span class="orange-circle"></span>
+						<h4><strong>{{$parent.tickets[ticketId].subject}}</strong></h4>
+
+						<p class="middle-gap">
+							<small>
+								<strong>Submitted:</strong>
+								{{$parent.tickets[ticketId].created_at}}
+								<strong>By:</strong>
+								{{$parent.tickets[ticketId].by}}
+							</small>
+						</p>
+						<p>
+							<small>
+								<strong>QID:</strong>
+								{{$parent.tickets[ticketId].id}}
+								<strong>Comments:</strong>
+								{{$parent.tickets[ticketId].total_comments}}
+							</small>
+						</p>
+					</div>
+				</li>
+			</ul>
+			
+		</div> 
+	</div>
+</div>

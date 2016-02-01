@@ -1,0 +1,19 @@
+
+
+.device-info-modal-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 430px;
+}
+.device-info-modal-body .pad-remove {
+  position: relative;
+}
+.custom-tooltip-device {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.top-margin {
+  margin-top: 15px;
+}

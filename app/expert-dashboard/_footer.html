@@ -1,0 +1,55 @@
+<div class="row dashboard-bg dashboard-main-footer row-space-zero">
+	<div class="col-sm-3 col-space-zero">
+		<div class="dashboard-left-footer">
+			<form class="form-inline text-center">
+				<button class="btn bg-blue text-uppercase blu-btn" type="submit">
+					<strong>archives
+						<span class="arch">»</span>
+					</strong>
+				</button>
+				<div class="form-group question-search">
+					<input type="text" placeholder="Search Archives" id="inputPassword2" class="custom-placeholder form-control">
+					<a href="" class="footer-search-icon"></a>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div class="col-sm-9 col-space-zero">
+		<div class="row row-space-zero">
+			<div class="col-sm-8 col-space-zero">
+
+				<!-- Footer starts -->
+				<footer class="dashboard-footer">
+					<div class="">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<div class="col-sm-9">
+									<input type="text" class="form-control mw-custom" id="inputPassword2" placeholder="Expert: Type your response here" ng-model="chat.input" />
+								</div>
+								<a href="" class="btn attach"></a>
+								<button ng-disabled="!chat.isActive || getCurrentTicketId()==0" class="btn btn-lg mw-snd-btn btn-default" ng-click="sendMessage()" type="submit" >Send</button>
+							</div>
+						</form>
+					</div>
+				</footer>
+				<!-- Footer ends -->
+			</div>
+			<div class="col-sm-4 col-space-zero dashboard-bg">
+				<div class=" row right-body-footer row-space-zero">
+					<div class="text-center">
+						<a href="" class="btn bg-blue text-uppercase blu-btn"><strong>Send Back to Queue</strong></a>
+						<a href="" class="btn bg-blue text-uppercase blu-btn"><span class="flag-icon"></span><strong>Flag</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="position:fixed;right:10px;bottom:60px" ng-hide="requestFeedbackHide">
+
+  	<button ng-show="$parent.tickets[$parent.currentTicketId].status==1 || $parent.tickets[$parent.currentTicketId].status==2 || $parent.tickets[$parent.currentTicketId].status=='in_progress_by_expert' || $parent.tickets[$parent.currentTicketId].status=='waiting_for_expert'" ng-disabled="!chat.isActive  || getCurrentTicketId()==0" ng-click="requestFeedback()" class="btn btn-success"><span class="fa fa-thumbs-up"></span> Request For Feedback</button>
+  </div>
+
+</div>

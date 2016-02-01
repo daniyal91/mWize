@@ -1,0 +1,75 @@
+<div id="modalMain" class="modal-header custom-modal text-center"> 
+  <button type="button" class="close" data-dismiss="modal" ng-click='closeChooseAvatarModal()'><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <h3 class="remove-space">Choose An Avatar </h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div  class="col-md-2 text-right">
+      <a href="" id="left-btn" class="navigators">
+        <span class="navigator-left avatar-navigator"></span>
+      </a>
+    </div>
+    <div  class="col-md-8 avatar-wrap">
+      <ul class="avatar-carousel text-left">
+        <li class="item-slide" ng-repeat='file in data.files' ng-class="{'active':(file.name==selectedFile)}">
+          <a href="">
+            <img ng-click="avatarSelected(file)" ng-src="{{data.rootUrl}}/avatars/{{file.name}}" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div  class="col-md-2">
+      <a href="" class="navigators" id="right-btn">
+        <span class="navigator-right avatar-navigator"></span>
+      </a>
+    </div>
+  </div>
+  <div class="text-center">
+  	<a href='' class="btn btn-lg btn-default text-uppercase upload-btn" ng-click='selectAvatar()'> OK </a>
+  	<a href='' class="btn btn-lg btn-default text-uppercase upload-btn" ng-click='cancel()'> Cancel </a>
+  </div>
+    <!-- <div class="text-center">
+      <span>OR</span>
+      <div class="upload-wrap">
+        <input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
+        <div class="custom-uploadbtn btn btn-lg btn-default text-uppercase upload-btn">
+          <span>Upload Photo</span> 
+        </div>
+      </div>
+      <a href='' ng-click='removeAvatar()' class=" btn btn-lg btn-default text-uppercase upload-btn"> Remove avatar </a>
+    </div>   -->  
+  </div>
+</div>
+<div class="modal-footer text-center" ng-hide="loggedIn">
+  <p class="text-center grey-color remove-space">
+    <i>
+      <a href=""><strong>login</strong></a> or <a href=""><strong>signup</strong></a> now for a more personalized experience.
+    </i>
+  </p>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var currentAvatarPointer = 0;
+    $('#right-btn').on('click', function () {    		
+    	var totalAvatars = $("ul.avatar-carousel").find("li").length;
+  		if(totalAvatars > 4 && currentAvatarPointer < (totalAvatars-3))
+  		{
+  			currentAvatarPointer++;
+        $('.item-slide').animate({
+            left: '-=100'
+        });
+    	}
+    });
+    $('#left-btn').on('click', function () {
+    	var totalAvatars = $("ul.avatar-carousel").find("li").length;
+      if(totalAvatars > 4 && currentAvatarPointer > -1)
+  		{
+  			currentAvatarPointer--;
+        $('.item-slide').animate({
+            left: '+=100'
+        });
+    	}
+    });
+  });
+</script>

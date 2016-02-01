@@ -1,0 +1,57 @@
+<div ng-controller="RelatedArticlesCtrl">
+	<div slider="showRelatedArticlesWindow" class="articles-main">
+	<div class="container">
+	    <div style="margin-left:auto;margin-right:auto; width:60px;">
+	    	<img class="pointer" style="width:60px;height:49px" ng-click="toggleRelatedArticles()" src="/assets/images/toggler.png" />
+	    </div>
+
+	    <div class="articles related-articles-panel">
+				<div ng-if="showArticleList">
+					<div class="row">
+						<div class="col-sm-8">
+							<h2 class="blue-color text-uppercase remove-space">
+								<strong>related articles</strong>
+							</h2>
+						</div>
+						<div class="col-sm-4">
+							<div class="search-article">
+								<div class="form-group">
+							        <div class="input-group">
+							          <input type="text" ng-model="search" placeholder="Search Articles" class="form-control custom-placeholder">
+							          <a class="input-group-addon">
+							          	<span class="glyphicon glyphicon-search"></span>
+							          </a>
+							        </div>
+							      </div>
+							</div>	
+						</div>
+					</div>
+
+					<ul class="articles-wrap text-left">
+						<!-- <li ng-repeat="a in articles | filter:search" class="articles-inner"> -->
+						<li ng-repeat="a in articles" class="articles-inner">
+							<!-- <a class="thumbnail" href="javascript:;" ng-click="viewDetails(a)"> -->
+							<a class="thumbnail" href="javascript:;">
+								<img src="/assets/images/img1.png">
+								<div class="caption">
+									<h3>
+									{{a.title}}
+									</h3>
+									<p class="thumbnail-date txt-orange">{{a.created_at}}</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div ng-if="!showArticleList">
+		    	<h2 class="blue-color text-uppercase remove-space">
+							<strong>Details</strong> - <a href="javascript:;" ng-click="viewList()" class="btn btn-default">Go Back</a>
+					</h2>
+		    	<h3>{{currentArticle.title}}</h3>
+		    	<p>{{currentArticle.detail}}</p>
+		    	</div>
+		</div>
+</div>
+
+	</div>
+</div>

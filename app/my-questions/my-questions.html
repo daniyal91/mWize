@@ -1,0 +1,148 @@
+<div class="col-md-12">
+
+	<section class="row ask my-questions-heading">
+		<div class="col-md-9">
+			<h2 class="text-uppercase txt-blue pull-left ask-q semi-bold">My questions</h2>
+		</div>
+		<div class="col-md-3">
+			<!--Illustration of character presenting the ask a specialist field goes here.-->
+		</div>
+	</section>
+	<!-- ask row ends here -->
+
+	<div class="row">
+		<div class="col-lg-12" ng-controller="LandingPageCtrl">
+			<form class="form-horizontal" role="form">
+				<div class="input-group search form-group">
+					<input form-validation validation-min-length="20" validation-max-length="255"
+					       data-ng-model="ask.question" type="text"
+					       placeholder="How can we help you with your mobile device ?" id="askAQuestion"
+					       class="form-control" required>
+
+      <span class="input-group-btn">
+	      <button form-validation btn-process="submitQuestion()"
+	              class="btn btn-lg btn-default text-uppercase semi-bold" type="submit">
+		      Ask a Specialist
+	      </button>
+      </span>
+				</div>
+				<div ng-show="!inValidMinLength || !inValidMaxLength" class="validation-error">{{askAQuestion_error}}</div>
+			</form>
+			<!-- /input-group -->
+		</div>
+		<!-- /.col-lg-6 -->
+	</div>
+	<!-- /.row -->
+	<div ng-controller="MyQuestionsCtrl">
+		<div class="questions" ng-if="tickets.recent_tickets.length">
+			<div class="question-head row">
+				<div class="col-sm-12">
+					<h3>Active Questions</h3>
+				</div>
+			</div>
+
+			<div class="question-body toggle-open">
+				<ul>
+
+					<!--Question starts -->
+					<li ng-class="!ticket.is_read ? 'active-item' : '' " class="row question-item"
+					    ng-repeat="ticket in tickets.recent_tickets">
+						<a ng-click="loadConversation(ticket.id)">
+							<div class="col-sm-9">
+								<h3><strong>{{ticket.subject}}</strong></h3>
+
+								<p>
+									<span><strong>Submitted:</strong></span>
+									<span><small>{{ticket.created_at}}</small></span>
+									<span class="middle-space"></span>
+									<span><strong>QID:</strong></span>
+									<span><small>Q-{{ticket.id}}</small></span>
+									<span class="middle-space"></span>
+									<span><strong>Specialist:</strong></span>
+	                            <span ng-if="ticket.ticket_assigned_to"><small>
+		                            {{ticket.ticket_assigned_to_first_name}} {{ticket.ticket_assigned_to_last_name}}
+	                            </small></span>
+	                                <span ng-if="!ticket.ticket_assigned_to"><small>Waiting for Assignment
+	                                </small></span>
+									<span class="middle-space"></span>
+									<span><strong>Comments:</strong></span>
+									<span><small>{{ticket.ticket_comments.length}}</small></span>
+								</p>
+							</div>
+							<div class="col-sm-2">
+								<span class="text-uppercase active-recent text-center ticket-button-box"><strong>{{ticket.status}}</strong></span>
+							</div>
+							<div class="col-sm-1">
+								<span class="item-bg"></span>
+							</div>
+						</a>
+					</li>
+					<!-- Question ends -->
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="questions" ng-if="tickets.previous_tickets.length">
+			<div class="question-head row">
+				<div class="col-sm-12">
+					<h3>Resolved Questions</h3>
+				</div>
+			</div>
+
+			<div class="question-body toggle-close">
+				<ul>
+
+					<!--Question starts -->
+					<li ng-class="!ticket.is_read ? 'active-item' : '' " class="row question-item"
+					    ng-repeat="ticket in tickets.previous_tickets">
+						<a ng-click="loadConversation(ticket.id)">
+							<div class="col-sm-9">
+								<span class="question-badge pull-left"></span>
+
+								<h3>{{ticket.subject}}</h3>
+
+								<p>
+									<span><strong>Submitted</strong></span>
+									<span><small>{{ticket.created_at}}</small></span>
+									<span class="middle-space"></span>
+									<span><strong>QID:</strong></span>
+									<span><small>Q-{{ticket.id}}</small></span>
+									<span class="middle-space"></span>
+									<span><strong>Specialist:</strong></span>
+	                            <span ng-if="ticket.ticket_assigned_to"><small>
+		                            {{ticket.ticket_assigned_to_first_name}} {{ticket.ticket_assigned_to_last_name}}
+	                            </small></span>
+	                                <span ng-if="!ticket.ticket_assigned_to"><small>Waiting for Assignment
+	                                </small></span>
+									<span class="middle-space"></span>
+									<span class="middle-space"></span>
+									<span><strong>Comments:</strong></span>
+									<span><small>{{ticket.ticket_comments.length}}</small></span>
+								</p>
+							</div>
+							<div class="col-sm-2">
+								<!-- <span href="" class="text-uppercase btn recent login"><strong>{{ticket.status}}</strong></span> -->
+								<span href="" class="text-uppercase active-recent text-center ticket-button-box resolved"><strong>{{ticket.status}}</strong></span>
+							</div>
+							<div class="col-sm-1">
+								<span class="item-bg"></span>
+							</div>
+						</a>
+					</li>
+					<!-- Question ends -->
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(".question-toggler").click(function () {
+		$(".question-body").slideToggle("slow");
+		$(".question-toggler .glyphicon").toggleClass("glyphicon-plus");
+		$(".question-toggler .glyphicon").toggleClass("glyphicon-minus");
+
+	});
+</script>

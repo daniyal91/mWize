@@ -1,0 +1,46 @@
+<div class="col-md-12" ng-controller="TicketDetailsCtrl">
+    <div class="wrapper">
+        <div class="container">
+            <!-- ask row starts here -->
+            <section class="row ask">
+                <a ui-sref='home.tickets'>Back to ticket listing</a>
+
+            </section>
+            <!-- ask row ends here -->
+
+            <section class="query">
+                <h1>{{ticket.subject}}</h1>
+            </section>
+
+            <!-- chat section starts here -->
+            <div class="chat-box" id="content-1">
+                <ul class="chat" id="examples">
+                    <li ng-repeat="data in chat.messages track by $index">
+                        <span chat-bubble-directive='data' callback="sendMessage(message)" user-role="userRole"></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- chat section ends here -->
+        </div> <!-- container ends here  -->
+    </div> <!-- wrapper ends here -->
+    <!-- Content body here -->
+
+    <!-- Footer starts -->
+    <footer class="footer navbar-fixed-bottom " style="background-color:#ACD4CB">
+        <div class="container">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control mw-custom" id="inputPassword2" placeholder="Expert: Type your response here" ng-model="chat.input" />
+                    </div>
+                    <a href="" class="btn attach"></a>
+                    <button ng-disabled="!chat.isActive" ng-click="sendMessage()" type="submit" class="btn btn-lg mw-snd-btn btn-default">Send</button>
+                </div>
+            </form>
+        </div>
+    </footer>
+
+    <div style="position:fixed;left:10px;bottom:70px" ng-hide="requestFeedbackHide">
+    	<button ng-disabled="!chat.isActive" ng-click="requestFeedback()" class="btn btn-success"><span class="fa fa-thumbs-up"></span> Request For Feedback</button>
+    </div>
+</div>

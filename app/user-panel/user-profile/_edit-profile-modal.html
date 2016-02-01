@@ -1,0 +1,196 @@
+<!-- Personal starts here  -->
+<div ng-hide="passwordModal">
+  <div class="modal-header text-center">
+    <button ng-click="close()" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+        class="sr-only">Close</span></button>
+    <h2 class="blue-color text-uppercase remove-space"><strong>Your Info</strong></h2>
+    <h4 class="blue-color">
+      For best results, please fully complete your profile.
+    </h4>
+  </div>
+  <div class="main-profile-modal">
+    <div class="modal-body user-profile-modal">
+      <h4 class="blue-color text-center">
+        <strong>Your Profile Photo</strong>
+      </h4>
+
+      <div class="profile-avatar-change">
+        <div class="row">
+          <div class="col-sm-3 profile-current-avatar">
+            <img ng-src="{{avatars.rootUrl}}/avatars/{{userAvatar}}" class="img-circle round-img">
+
+            <p class="small-ten text-uppercase blue-color picture-choose text-right">current photo</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="small-ten text-uppercase blue-color picture-choose text-center">Choose a New Avatar</p>
+
+            <!--Avatar Starts Here-->
+            <div class="row">
+              <div class="col-md-1 text-right">
+                <a href="" id="left-btn" class="navigators">
+                  <span class="navigator-left avatar-navigator"></span>
+                </a>
+              </div>
+              <div class="col-md-9 avatar-wrap pad-remove">
+                <ul class="avatar-carousel text-left">
+                  <li class="item-slide" ng-repeat='file in avatars.files'
+                      ng-class="{'active':(file.name==selectedFile)}">
+                    <a href="">
+                      <img ng-click="avatarSelected(file)" ng-src="{{avatars.rootUrl}}/avatars/{{file.name}}" alt="">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-1 col-space-zero">
+                <a href="" class="navigators" id="right-btn">
+                  <span class="navigator-right avatar-navigator"></span>
+                </a>
+              </div>
+            </div>
+            <p class="text-uppercase blue-color text-center">
+              <small class="small-ten">OR</small>
+						<span class="fileContainer orange-color">
+						<strong>Upload A Photo</strong>
+							<input ng-file-select="onCustomAvatarSelect($files)" type="file" id="upload" name="upload"/>
+							</span>
+
+              <!--<a href="" class="orange-color"><strong>Upload A Photo</strong></a>-->
+              <strong>
+                <small class="small-ten">(Min size 128 x 128 pixels)</small>
+              </strong>
+            </p>
+          </div>
+          <!--Avatar Ends Here-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center">
+        <form role="form" class="form-horizontal custom-labels custom-form">
+          <!--<div class="form-group">-->
+            <!--<label class="col-sm-12 blue-color control-label">Your Full Name</label>-->
+
+            <!--<div class="col-sm-12">-->
+              <!--<input type="text" class="form-control" placeholder="" ng-model="user.fullName">-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <div class="form-group">
+            <label class="col-sm-12 blue-color control-label">Your Email<span
+                class="orange-color">*</span> </label>
+
+            <div class="col-sm-12">
+              <input validation-check="Email is invalid." readonly="true" type="email" class="form-control user-profile-email" placeholder="" ng-model="user.email" required>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-12 blue-color control-label">Your Chat Name (Nickname)<span
+                class="orange-color">*</span> </label>
+
+            <div class="col-sm-12">
+              <input validation-check="Provide a valid chatname" type="text" class="form-control user-profile-chatname" placeholder="Used when you chat with a specialist" validation-only-alphanumeric-without-space="true" validation-min-length="3" validation-max-length="15"
+                     ng-model="user.username_temp" required>
+            </div>
+          </div>
+
+          <h4 class="orange-color text-left top-margin bottom-margin change-password-modal-link" ng-click="openPasswordModal()">
+            <a href="" class="orange-color">Change Password ?</a>
+          </h4>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="custom-modal-footer footer-btns">
+    <div class="row">
+      <div class="col-sm-6 text-center border-right">
+        <a href="" class="blue-color text-uppercase" ng-click="close()"><strong>Cancel</strong></a>
+      </div>
+
+      <div class="col-sm-6 text-center">
+        <a href="" class="orange-color text-uppercase" ng-click="updateUserProfile()"><strong>Save</strong></a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Change Password Modal -->
+
+<div ng-show='passwordModal'>
+
+  <div class="modal-header text-center">
+    <button type="button" class="close" data-dismiss="modal" ng-click="closePasswordModal()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h2 class="blue-color text-uppercase remove-space"><strong>Change Password</strong></h2>
+    <h4 class="blue-color">
+      Enter old and new password
+    </h4>
+  </div>
+
+  <div class="modal-body device-info-modal-body">
+    <div class="row">
+      <div  class="text-center">
+        <form role="form" class="form-horizontal custom-labels custom-form">
+            <div class="form-group">
+                <p ng-show="showAllFielsError" class="validation-error">{{passwordErrMessage}}</p>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 blue-color control-label">Old Password<span class="orange-color">*</span></label>
+                <input type="password" class="form-control" ng-model="userPassword.old_password" required>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 blue-color control-label">New Password<span class="orange-color">*</span></label>
+                <input type="password" class="form-control" ng-model="userPassword.password" compare-to="userPassword.confirm_password" do-validation-and-comparison="true" validation-message="Password must be of 6 characters" required>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 blue-color control-label">Confirm Password<span class="orange-color">*</span></label>
+                <input type="password" class="form-control" ng-model="userPassword.confirm_password" compare-to="userPassword.password" activate-on="keyup" required>
+                <p ng-hide="validComparison" class="validation-error"> Passwords do not match. </p>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-modal-footer footer-btns">
+    <div class="row">
+      <div class="col-sm-6 text-center border-right">
+        <a href="" class="blue-color text-uppercase" ng-click='closePasswordModal()'><strong>Cancel</strong></a>
+      </div>
+      <div class="col-sm-6 text-center">
+        <a href="" class="orange-color text-uppercase" ng-click='updateUserProfile()'><strong>Save</strong></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var currentAvatarPointer = 0;
+    $('#right-btn').on('click', function () {
+      var totalAvatars = $("ul.avatar-carousel").find("li").length;
+      if (totalAvatars > 4 && currentAvatarPointer < (totalAvatars - 3)) {
+        currentAvatarPointer++;
+        $('.item-slide').animate({
+          left: '-=88'
+        });
+      }
+    });
+    $('#left-btn').on('click', function () {
+      var totalAvatars = $("ul.avatar-carousel").find("li").length;
+      if (totalAvatars > 4 && currentAvatarPointer > -1) {
+        currentAvatarPointer--;
+        $('.item-slide').animate({
+          left: '+=88'
+        });
+      }
+    });
+  });
+</script>
+
+

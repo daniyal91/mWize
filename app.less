@@ -1,0 +1,78 @@
+//@import "vendor/bootstrap/less/theme.less";
+//@import "vendor/bootstrap-select/less/bootstrap-select.less";
+//@import "vendor/font-awesome/less/font-awesome.less";
+//@fa-font-path: "vendor/font-awesome/fonts";
+
+
+@import "assets/less/main.less";
+@import "assets/less/vendor.less";
+
+/* Component LESS */
+@import "app/home/home.less";
+@import "app/application/application.less";
+@import "app/expert-signup/expert-signup.less";
+@import "app/tickets/tickets.less";
+@import "app/signup/step1/signup-step-1.less";
+@import "app/signup/step2/signup-step-2.less";
+@import "app/signup/quiz/quiz.less";
+@import "app/categories/step1/categories.less";
+@import "app/categories/step2/categories-step2.less";
+@import "app/articles/articles.less";
+@import "app/upload-image/upload-image.less";
+@import "app/admin/admin.less";
+@import "app/admin/chatbot/chatbot-admin.less";
+@import "app/admin/users/users.less";
+@import "app/ask-a-specialist/ask-a-specialist.less";
+@import "app/landing-page/landing-page.less";
+@import "app/tickets/ticket-details/ticket-details.less";
+@import "app/html-testing/html-testing.less";
+@import "app/my-questions/my-questions.less";
+@import "app/components/slider/slider.less";
+@import "app/components/ng-raty/ng-raty.less";
+@import "app/components/avatar/avatar.less";
+
+@import "app/ask-a-specialist/related-articles/related-articles.less";
+@import "app/forgot-password/forgot-password.less";
+@import "app/reset-password/reset-password.less";
+@import "app/ask-a-specialist/expert-feedback/expert-feedback.less";
+@import "app/ask-a-specialist/consumer-signup/consumer-signup.less";
+@import "app/user-panel/user-panel.less";
+@import "app/user-panel/user-devices/user-devices.less";
+@import "app/user-panel/user-profile/user-profile.less";
+@import "app/expert-dashboard/expert-dashboard.less";
+/* Add Component LESS Above */
+
+/* Required for Angular UI Bootstrap */
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+/* Personal preference for BS modal.  The LESS below makes the backdrop white and
+   causes the modal to fade in rather than slide in. */
+//@modal-backdrop-bg: white;
+//.modal {
+//	&.fade {
+//		.transition(opacity .3s);
+//	}
+//	&.fade .modal-dialog {
+//		.translate(0,0);
+//	}
+//}
+
+
+.ps-container .ps-scrollbar-y-rail:hover,
+.ps-container .ps-scrollbar-y-rail.hover,
+.ps-container .ps-scrollbar-y-rail.in-scrolling {
+    background-color: #eee;
+}
+.ps-container .ps-scrollbar-y {
+  background-color: #60bccb !important;
+}
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x, 
+.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x,
+.ps-container .ps-scrollbar-x,
+.ps-container .ps-scrollbar-x-rail.in-scrolling,
+.ps-container .ps-scrollbar-x-rail:hover, 
+.ps-container .ps-scrollbar-x-rail.hover {
+    background-color: #49a0bb !important;
+}

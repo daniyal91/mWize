@@ -1,0 +1,19 @@
+<div style="height:100px">&nbsp; </div>
+<div ng-controller="ChatBubbleCtrl">
+
+ <!-- chat section starts here -->
+      <div class="chat-box" id="content-1">
+        <ul class="chat" id="examples">
+          <!--<li ng-repeat="data in chat.messages track by $index">
+            <div chat-bubble-output='data' is-bot="isBot" callback="sendMessage(message)" command="runCommand(message)" user-role="userRole"></div>
+          </li>-->
+
+          <li chat-bubble-output="message" params="chatParams" ng-repeat="message in chat.messages track by $index" callback="sendMessage(message)">
+          	
+          </li>
+          
+        </ul>
+      </div>
+      <!-- chat section ends here -->
+
+</div>

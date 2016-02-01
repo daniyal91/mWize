@@ -1,0 +1,104 @@
+
+	
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#avatar">
+		Choose An Avatar
+	</button>
+
+	<!-- password reset starts here  -->
+	<div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog custom-modal">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h3 class="remove-space">Choose An Avatar </h3>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div  class="col-md-2 text-right">
+							<a href="" id="left-btn" class="navigators grey-color left-move">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+						</div>
+						<div  class="col-md-8 avatar-wrap">
+							<ul class="avatar-carousel text-left">
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/home/pic1.png" alt="">
+									</a>
+								</li>
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar-1.png" alt="">
+									</a>
+								</li>
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar03.png" alt="">
+									</a>
+								</li>
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar-1.png" alt="">
+									</a>
+								</li>
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar-1.png" alt="">
+									</a>
+								</li>
+								<li class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar-1.png" alt="">
+									</a>
+								</li>
+								<li  class="item-slide">
+									<a href="">
+										<img src="/assets/images/avatar-1.png" alt="">
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div  class="col-md-2">
+							<a href="" class="navigators grey-color" id="right-btn">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<span>OR</span>
+						<div class="fileUpload btn btn-lg btn-default text-uppercase upload-btn">
+						    <span>Upload Photo</span>
+						    <input type="file" class="upload" />
+						</div>
+					</div>
+				</div>					
+				<div class="modal-footer text-center">
+					<p class="text-center grey-color remove-space">
+						<i>
+							<a href="#"><strong>login</strong></a> or <a href=""><strong>signup</strong></a> now for a more personalized experience.
+						</i>
+					</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var toggle = false;
+	$('#right-btn').on('click', function () {
+	    $('.item-slide').animate({
+        	left: '-=100'
+    	});
+	});
+	$('#left-btn').on('click', function () {
+	    $('.item-slide').animate({
+        	left: '+=100'
+    	});
+	});
+});
+
+</script>
+	

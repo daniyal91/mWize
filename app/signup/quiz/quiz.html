@@ -1,0 +1,7 @@
+<div ng-controller="QuizCtrl">
+	<div ng-show="quiz.showStart" ng-include="'app/signup/quiz/_start.html'"></div>
+
+	<div ng-show="quiz.showQuiz" ng-include="'app/signup/quiz/_questions.html'"></div>
+
+	<div ng-show="quiz.showResults" ng-include="'app/signup/quiz/_results.html'"></div>
+</div>

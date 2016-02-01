@@ -1,0 +1,212 @@
+@dark-grey: #444;
+@dark-green: #345a51;
+@panel-blue-stats: #b9e5ea;
+@user-panel-blue: #74d2e1;
+.profile-main{
+  background: @user-panel-blue;
+}
+.margin-zero{
+  margin: 0;
+}
+.profile-inner{
+  padding: 40px 0 0 0;
+  .profile-edit{
+    color: #19708b;
+    text-decoration: underline;
+    font-size: @padding-base-horizontal;
+    margin-top: @padding-large-vertical;
+  }
+  .green-txt{
+    color :  @dark-green;
+  }
+  h4{
+    color: #333;
+    font-size: @padding-large-horizontal;
+    .margin-zero;
+    .semi-bold;
+  }
+  h3{
+    font-size: @carousel-control-font-size;
+    .margin-zero;
+    color: #333;
+  }
+  h2{
+    .margin-zero;
+    font-size: @carousel-control-font-size+6;
+  }
+  .level-text{
+    font-size:16px;
+  }
+  small{
+    color: #333;
+  }
+}
+.media-heading{
+  .color-grey-dark;
+}
+.color-grey-dark{
+  color: @panel-blue-stats;
+}
+.plus-icon{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: url("/assets/images/plus-icon.png") @panel-blue-stats no-repeat center center;
+  .border-radius(50%);
+  margin-right: 15px;
+//  margin-top: 34px;
+  position: relative;
+  top: 10px;
+}
+.add-device:hover .plus-icon{
+  background: url("/assets/images/plus-icon-hover.png") @link-color no-repeat center center;
+}
+
+.profile-level{
+  .border-radius(5px);
+  padding: 10px 0 5px;
+  background: @panel-blue-stats;
+  small{
+    color: #151515;
+  }
+}
+.knowledge-level{
+  margin: 20px 0 35px;
+}
+.profile-sign-out
+{
+  background: @link-color;
+  font-size: 19px;
+  color: @component-active-color;
+  padding: 4px 35px;
+  .border-top-right-radius(5px);
+  .border-top-left-radius(5px);
+  display: inline-block;
+}
+
+.profile-sign-out:hover{
+  color: @component-active-color;
+}
+
+.custom-slider {
+  .ui-widget-content{
+    background: transparent;
+    border: none;
+    height: 14px;
+    width: 133px;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: url("/assets/images/slider.png") no-repeat;
+    border: none;
+    height: 24px;
+    width: 6px;
+  }
+  .ui-slider-horizontal .ui-slider-handle{
+    margin: 0;
+  }
+  .level-slider{
+    width: 154px;
+    margin-right: 20px;
+    background: url("/assets/images/slider-bar.png") no-repeat;
+    background-size: 139px 14px;
+  }
+}
+.user-loggedIn{
+  .profile-name{
+    background: @user-panel-blue !important;
+    width: 209px;
+    color: @link-color !important;
+    font-size: 16px;
+    padding: 18px 21px 23px 17px;
+    margin-top: 9px;
+    .border-top-right-radius(5px);
+    .border-top-left-radius(5px);
+    .caret
+    {
+      margin-top: 10px;
+    }
+  }
+  .navbar-nav > li .profile-name:hover,
+  .navbar-nav > li .profile-name:focus,
+  .navbar-nav > .active > .profile-name:hover,
+  .navbar-nav > .active > .profile-name:focus{
+    background: @home-header-bg ;
+    color: @link-color !important;
+  }
+}
+
+.blue-navigataion{
+  .navbar-nav > .active > a,
+  .navbar-nav > li a:hover,
+  .navbar-nav > li a:focus,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus{
+    background: url("/assets/images/loggedin-user.png") no-repeat scroll center bottom;
+  }
+}
+
+.green-text-space{
+  margin: 12px 0 0 0;
+  display: block;
+}
+.small-txt-b
+{
+  font-size: 12px;
+}
+.stats-wrap{
+  padding: 0 10px;
+  .col-sm-4{
+    padding: 0 5px;
+  }
+}
+.avatar-img{
+  .border-radius(50%);
+  width: 61px;
+  height: 61px;
+  display: block;
+}
+
+.device-info-position{
+  margin-bottom: 34px;
+  width:95% !important;
+}
+
+.device-info-area{
+  height: 140px;
+  margin-bottom: 25px;
+}
+
+.signout-position{
+  margin-top: 10px;
+}
+
+.pointer-wrap{
+  position: relative;
+  width: 126px;
+  height: 14px;
+  z-index: 2;
+  a{
+    cursor: pointer;
+  }
+}
+.ps-container:hover .ps-scrollbar-y-rail, 
+.ps-container.hover .ps-scrollbar-y-rail,
+.ps-container .ps-scrollbar-y-rail,
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y, 
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y{
+  display: block !important;
+  opacity: 1 !important !important;
+  visibility: visible !important;
+}
+
+.add-device-row{
+  margin-top: 20px;
+}
+
+.device-remove-cross{
+  float: right;
+  font-size: 16px;
+}

@@ -1,0 +1,18 @@
+<div ng-controller="ApplicationCtrl">
+	<div ng-controller="AdminCtrl">
+		<!-- header -->
+		<div ng-include="'app/admin/_header.html'"></div>
+		<!-- /header -->
+		<div class="row">
+			<div ng-show="app.sidebar" class="col-md-3 sidebar">
+				<div ng-show="app.header" ng-include="'app/admin/_sidebar.html'"></div>
+			</div>
+			<div class="col-md-9">
+				<div ui-view="application"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div ng-include="'app/admin/_footer.html'"></div>
+		<!-- /footer -->
+	</div>
+</div>

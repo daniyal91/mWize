@@ -1,0 +1,125 @@
+
+/* ++++++++++++++++ personal info popup goes here */
+
+.custom-labels .control-label{
+  font-size: @modal-inner-padding+2;
+  text-align: center;
+}
+
+.custom-form input {
+  &:focus{
+    border-color: #333333;
+  }
+}
+
+
+.custom-form{
+  padding: 0 @modal-inner-padding+20;
+  .form-group{
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .form-control{
+  color: @navbar-inverse-toggle-hover-bg;
+  }
+}
+.border-right
+{
+  border-right: 1px solid #bbbbbb;
+}
+.custom-modal-footer{
+  background: none repeat scroll 0 0 #ebfbff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid #bbbbbb;
+}
+.footer-btns a{
+  padding: @modal-inner-padding 0;
+  display: block;
+}
+
+.custom-modal h4{
+  margin: 0;
+}
+
+.profile-avatar-change{
+  .border-radius(10px);
+  border: 1px solid #bbbbbb;
+  padding: @padding-large-vertical 0;
+  margin: 7px 15px;
+  .profile-current-avatar
+  {
+    border-right: 1px solid #cfcfcf;
+    img{
+      width: 62px;
+      height: 63px;
+      margin: 22px 0 14px 20px;
+    }
+  }
+
+
+}
+.small-ten{
+  font-size: 10px;
+}
+.smallest{
+  font-size: 8px;
+}
+
+.user-profile-modal{
+  overflow-x: auto;
+  max-height: 432px;
+}
+
+.navigators
+{
+  position: relative;
+  top: 25px;
+}
+
+.main-profile-modal{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /*max-height: 430px; height for the scrollbar */
+}
+
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+.fileContainer [type=file] {
+  width: 141px;
+  cursor: pointer;
+}
+.fileContainer strong{
+  font-size: 12px;
+}
+.change-password-modal-link{
+  margin-left: 15px !important;
+}
+/* ++++++++++++++++ */
+
+
+.ps-container:hover .ps-scrollbar-y-rail, 
+.ps-container.hover .ps-scrollbar-y-rail,
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y, 
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y-rail,
+.ps-container .ps-scrollbar-y{
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

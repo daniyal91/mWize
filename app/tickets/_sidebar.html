@@ -1,0 +1,14 @@
+<ul>
+  <li ng-if="(userRole.name==='expert')" >
+    <button ng-click="getMore('')" class="btn btn-success">Get more tickets! <b>{{ticketsAvailable}}</b> Available</button>
+  </li>
+	<li ng-if="(userRole.name==='expert')" ><a href="" ng-click='showTickets("")'><span class="fa fa-user"></span> Mine</a></li>
+  <li><a href="" ng-click='showTickets("open")'><span class="fa fa-inbox"></span> Open</a></li>
+	<li><a href="" ng-click='showTickets("waiting")'><span class="fa fa-clock-o"></span> Waiting</a></li>
+	<li><a href="" ng-click='showTickets("closed")'><span class="fa fa-check"></span> Close</a></li>
+	<li><a href="" ng-click='showTickets("deleted")'><span class="fa fa-trash-o"></span> Trashed</a></li>
+  <li ng-if="(userRole.name==='expert')" >
+  <a href="" ng-click='getCollaboration()'><span class="fa fa-users"></span> Collaborations</a>
+  </li>
+
+</ul>

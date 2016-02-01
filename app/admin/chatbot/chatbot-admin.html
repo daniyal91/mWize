@@ -1,0 +1,51 @@
+<div style="margin:5px" ng-controller="ChatbotAdminCtrl" ng-init='getPatterns("parent")'>
+  <h3>Bot Patterns</h3>
+
+  <div style="padding:10px">
+    <div class="pull-left">
+      <button class="btn btn-primary" ng-click="newPattern('parent')">Add Pattern</button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <!-- <treecontrol class="tree-light" tree-model="dataForTheTree" options="treeOptions" on-selection="showSelected(node)" order-by="id">
+    Pattern: {{node.pattern? node.pattern:"No Pattern available"}}
+	<div ng-if="node.srai.length > 0"><strong>Redirect Pattern: </strong> {{node.srai}}</div>
+    <div>
+    	Response: {{node.template? node.template:"No Response available"}}
+      <a href='' ng-click="newPattern(node,$index,$parentNode)" ng-show='node.pattern'> Add new pattern </a>
+  	</div>
+  </treecontrol> -->
+
+
+
+  <script type="text/ng-template" id="items_renderer.html">
+    <div ui-tree-handle>
+      <div class="clearfix" style="margin-top:10px">
+        <div class="pull-left">
+          <a class="btn btn-success btn-xs" data-nodrag ng-click="showNodeDetails(item); toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+          <a class="btn btn-primary btn-xs" data-nodrag ng-click="newPattern(item)"><span class="glyphicon glyphicon-plus"></span></a>
+          <a class="btn btn-primary btn-xs" data-nodrag ng-click="editPattern(item)"><span class="fa fa-edit"></span></a>
+          <a class="btn btn-danger btn-xs" data-nodrag ng-click="removePattern(item,this)"><span class="glyphicon glyphicon-remove"></span></a>
+          <a class="btn btn-primary btn-xs" data-nodrag ng-click="duplicatePattern(item,this)"><span class="glyphicon glyphicon-file"></span></a>
+        </div>
+        <div class="pull-left" style="margin-left:10px; width:80%">
+          <div><b> When: </b> {{item.pattern}} </div>
+          <div ng-if="item.template.length > 0"><b> Response: </b> {{item.template}} </div>
+          <div ng-if="item.srai.length > 0"><b> SRAI: </b> {{item.srai}}</div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <ol ui-tree-nodes="options" ng-model="item.items" ng-class="{hidden: collapsed}">
+      <li ng-repeat="item in item.items" ui-tree-node ng-include="'items_renderer.html'">
+      </li>
+    </ol>
+  </script>
+  <div ui-tree="options">
+    <ol ui-tree-nodes ng-model="list" >
+      <li ng-repeat="item in list" ui-tree-node ng-include="'items_renderer.html'"></li>
+    </ol>
+  </div>
+
+</div>

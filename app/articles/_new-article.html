@@ -1,0 +1,10 @@
+<a href='' ng-click='toggleArticleDetail()'>Back to article listing</a>
+
+<br>
+<h3> Title: </h3>
+<input type='text' ng-model='newArticle.title' class='form-control' placeholder="Title..."></input>
+
+<h3> Detail: </h3>
+<text-angular id="description" rows="10" placeholder="Detail..." ng-model="newArticle.detail"></text-angular>
+<br>
+<a href='' class='btn btn-primary' ng-click='saveArticle()'>Save</a>

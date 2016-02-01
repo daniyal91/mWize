@@ -1,0 +1,150 @@
+<!--<div class="row center-panel" ng-controller="ExpertDashboardCenterCtrl">
+	<div ng-if="panel.collapsed" class="col-md-9">
+		Chat window
+	</div>
+	<div ng-if="panel.collapsed" ng-include="'app/expert-dashboard/_panel-right.html'"></div>
+	<div ng-if="!panel.collapsed" ng-include="'app/expert-dashboard/_panel-expanded.html'"></div>
+</div>-->
+<div class="col-sm-9  right-col-fixed  bg-special-dashboard col-space-zero">
+<!-- navigation starts  -->
+<div class="dashboard-navigation">
+	<nav class="navbar bg-blue dashboard-navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display  -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="navbar-nav navbar-right">
+					<!--<li><a href="#">Dashboard</a></li>
+					<li><a href="#" class="active">Page 2</a></li>-->
+					<li class="dropdown custom-profile">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user.first_name}}<span class="custom-caret pull-right"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Item1</a></li>
+							<li><a href="" ng-click="logout()">Log out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> <!-- /.navbar-collapse  -->
+		</div> <!-- /.container-fluid  -->
+	</nav>
+</div>
+<!-- navigation ends  -->
+
+<div class="row row-space-zero" ng-show="expertRightPanelShow" ng-controller="ExpertDashboardCenterCtrl">
+	<div class="col-sm-8 col-space-zero">
+		<div class="">
+			<!-- Content body starts here -->
+			<div class="wrapper dashboard-chat">
+				<div class="panel-select">
+					<a href="#" class="active-panel"><strong>Chat window</strong></a>
+					<a href="#"><strong>User & Device Info</strong></a>
+				</div>
+				<section class="query">
+					<h2><strong>{{$parent.tickets[$parent.getCurrentTicketId()].subject}}</strong></h2>
+				</section>
+
+				<!-- chat section starts here -->
+				<div class="chat-box" id="content-1">
+					<div id="device-scroller" custom-scroller class="chat-box-scroll">
+						<ul class="chat row" id="examples">
+							<li ng-repeat="messages in $parent.tickets[$parent.currentTicketId].comments">
+								<span chat-bubble-output='messages' is-bot="isBot" callback="sendMessage(message)" command="runCommand(message)" user-role="userRole" params="chatParams"></span>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<!-- chat section ends here -->
+
+			</div> <!-- wrapper ends here -->
+			<!-- Content body here -->
+
+
+		</div>
+	</div>
+
+	<div class="col-sm-4 col-space-zero">
+		<form class="panel-option-bar">
+			<div class="form-group clearfix">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">Tags</label>
+				<div class="col-sm-9 pull-right ">
+					<div class="input-group">
+						<input type="text"  class="form-control custom-placeholder" placeholder="Add Tags">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default text-uppercase">
+									add
+								</button>
+							</span>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="issue-tags">
+			<h4><strong>iPhone
+				<a href="" class="pull-right remove-icon"></a>
+			</strong>
+			</h4>
+			<h4><strong>iPhone 6
+				<a href="" class="pull-right remove-icon"></a>
+			</strong>
+			</h4>
+			<h4><strong>Battery
+				<a href="" class="pull-right remove-icon"></a>
+			</strong>
+			</h4>
+		</div>
+		<form class="panel-option-bar">
+			<div class="form-group clearfix">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">Actions</label>
+				<div class="pull-left">
+					<div class="custom-blue-slct">
+						<select class="form-control">
+							<option>Suggested Actions</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</div>
+				<a href="" class="resize pull-left"></a>
+			</div>
+		</form>
+		<ul class="right-panel-question">
+			<li>
+				<a href="">
+					Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui?
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus?
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod. vestibulum at eros?
+				</a>
+			</li>
+			<li>
+				<a href="">
+					Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor?
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
+
+	</div>
+

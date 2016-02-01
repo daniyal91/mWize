@@ -1,0 +1,128 @@
+<div ng-hide='false'>
+
+
+    <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h2 class="blue-color text-uppercase remove-space"><strong>Device info</strong></h2>
+        <h4 class="blue-color">
+            For best results, please fully complete this info  or
+            <strong>
+                <a href="" class="orange-color"><u>download our device health app </u></a>
+            </strong>
+            to your device.
+        </h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row deivce-row">
+            <div class="text-center">
+                <div class="device-info-modal-body" custom-scroller>
+                    <form role="form" class="form-horizontal custom-labels custom-form">
+                        <div class="form-group">
+                            <p ng-show="showAllFielsError" class="validation-error"> Please fill all the required fields first.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Device Title <span class="orange-color">*</span></label>
+                            <input type="text" class="form-control input-title" ng-model="device.device_title" placeholder="e.g. My Home IPhone" validation-check="Title is invalid" validation-only-alphanumeric='true'>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Device Operating System (OS)<span class="orange-color">*</span></label>
+                            <div class="custom-select">
+                                <select class="form-control custom-select-css col-sm-12" ng-model="device.os">
+                                    <option value="">Choose One</option>
+                                    <option ng-value="item.os" ng-repeat="item in allDevicesInfo" ng-if="item.os!=undefined">{{item.os}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Device Name<span class="orange-color">*</span> </label>
+                            <div class="custom-select">
+                                <select class="form-control custom-select-css col-sm-12" ng-model="device.name">
+                                    <option value="">Choose One</option>
+                                    <option ng-value="name" ng-repeat="name in deviceName">{{name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Your Model<span class="orange-color">*</span> </label>
+                            <div class="custom-select">
+                                <select class="form-control custom-select-css col-sm-12" ng-model="device.model">
+                                    <option value="">Choose One</option>
+                                    <option ng-value="model" ng-repeat="model in deviceModel">{{model}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Your OS Version<span class="orange-color">*</span> </label>
+                            <div class="col-sm-11 pad-remove">
+                                <div class="custom-select">
+                                    <select class="form-control custom-select-css col-sm-12" ng-model="device.os_version">
+                                        <option value="">Choose One</option>
+                                        <option ng-value="osVersion" ng-repeat="osVersion in deviceOsVersion">{{osVersion}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-1" ng-click="tooltipClick()">
+                                <a href="#" class="help-icon" tooltip="How to Find your OS Version »" tooltip-trigger="mouseenter" tooltip-placement="left"></a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Your Network Name</label>
+                            <div class="custom-select">
+                                <select class="form-control custom-select-css col-sm-12" ng-model="device.network_name">
+                                    <option value="">Choose One</option>
+                                    <option ng-value="carrier.name" ng-repeat="carrier in carriers">{{carrier.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Device Total Memory (in MB)</label>
+                            <input type="text" class="form-control testInput2 input-total-memory" ng-model="device.total_memory" placeholder="e.g. 200" op-validation-check="Total memory is invalid" op-validation-only-float='true'>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 blue-color control-label">Device Total Space (in MB)</label>
+                            <input type="text" class="form-control testInput3 input-total-space" ng-model="device.total_space" placeholder="e.g. 200" op-validation-check="Total space is invalid" op-validation-only-float='true'>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="device-modal-footer">
+        <div class="row">
+            <div class="col-sm-9 right-space-zero">
+                <p class="text-left remove-space txt-small">Download our device health and monitoring app to your devices to get diagnosics, and status from anywhere.</p>
+                <div class="row space-top">
+                    <div class="col-sm-4 right-space-zero">
+                        <a href=""><strong>Learn More »</strong></a>
+                    </div>
+                    <div class="col-sm-8">
+                        <a href="" class="app-btn pull-right google-play"></a>
+                        <a href="" class="app-btn pull-right google"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <img src="/assets/images/footer-phone.png" alt="" class="footer-image">
+            </div>
+        </div>
+    </div>
+    <div class="custom-modal-footer footer-btns">
+        <div class="row">
+            <div class="col-sm-6 text-center border-right">
+                <a href="" class="blue-color text-uppercase" ng-click='close()'><strong>Cancel</strong></a>
+            </div>
+            <div class="col-sm-6 text-center">
+                <a href="" class="orange-color text-uppercase" ng-click='saveUserDevices()'><strong>Save</strong></a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /*$(document).ready(function(){
+         $('.scroller').perfectScrollbar();
+         });*/
+    </script>
+</div>

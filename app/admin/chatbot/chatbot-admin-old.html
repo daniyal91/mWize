@@ -1,0 +1,52 @@
+<div style="margin:5px" ng-controller="ChatbotAdminCtrl">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Bot Patterns</h3>
+		</div>
+		<div class="panel-body" style="padding:0px">
+
+			<div ng-show="showIndex">
+				<div style="padding:10px">
+					<div class="pull-left">
+						<button class="btn btn-primary" ng-click="newPattern()">Add</button>
+					</div>
+					<div class="pull-right">
+						<input type="text" placeholder="Search" class="form-control" ng-model="search" />
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<table class="table table-striped" style="margin-bottom:0px">
+					<tr>
+						<th>ID</th>
+						<th>Pattern/Template</th>
+						<th>Actions</th>
+					</tr>
+					<tr ng-repeat="p in patterns | filter:search"  ng-animate="'animate'">
+						<td>{{p.id}}</td>
+						<td>
+						<div ng-if="p.ifid.length > 0"><strong>If previous question ID:</strong> {{p.ifid}}</div>
+ 						<strong>If Found:</strong> {{p.pattern}}<br />
+						<div ng-if="p.srai.length > 0"><strong>Redirect Pattern: </strong> {{p.srai}}</div>
+						<strong ng-if="p.ifid.length == 0">Reply With:</strong>
+						{{p.template}}
+						</td>
+						<td>
+							<!--<a href="javascript:;" ng-click="editUserForm(user)"><span class="fa fa-edit"></span></a>-->
+							<a href="javascript:;" ng-click="remove(p,$index)"><span class="fa fa-remove"></span></a>
+						</td>
+							
+					</tr>
+				</table>
+				<!--
+				<div style="padding:10px; padding-top:0px">
+					<pagination on-select-page="pageChanged(page)" page="page.current" total-items="page.total_items" items-per-page="page.items_per_page"></pagination>
+					
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+
+</div>

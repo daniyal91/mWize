@@ -1,0 +1,13 @@
+<div ng-controller="ApplicationCtrl">
+  <!-- header -->
+  <div ng-include="'app/application/_header.html'"></div>
+  <!-- /header -->
+  <div class="container">
+    <div class="row">
+      <div ui-view="application"></div>
+    </div>
+  </div>
+  <!-- footer -->
+  <div ng-show="app.footer" ng-include="'app/application/_footer.html'"></div>
+  <!-- /footer -->
+</div>

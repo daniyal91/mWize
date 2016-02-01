@@ -1,0 +1,29 @@
+<div class="col-md-12" ng-controller="CategoriesStep2Ctrl">
+
+  <h2> Create Ticket! </h2>
+  <div ng-show="ticketSubmitted">
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      Ticket has been submitted.
+    </div>
+  </div>
+  <form role="form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model='newTicket.email' validation-check="Email is invalid.">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Subject</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter subject" ng-model='newTicket.subject' validation-check="Subject should not be empty.">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Content</label>
+      <!-- <textarea rows='10' class="form-control" id="exampleInputEmail1" placeholder="Enter content" ng-model='newTicket.content' validation-check="Content should not be empty."></textarea> -->
+      <text-angular id="reply" rows="10" placeholder="Enter content" ng-model="newTicket.content"></text-angular>
+    </div>
+    <div class="form-group">
+      <input type="file" ng-file-select="onFileSelect($files)">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click='createTicket()' ng-disabled='ticketSubmitted || !isValidForm'>Create Ticket</button>
+  </form>  
+</div>

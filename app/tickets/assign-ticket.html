@@ -1,0 +1,28 @@
+<div class="modal-content col-xs-12 col-md-12">
+<div class="modal-header col-xs-12 col-md-12">
+  <!--<h3 class="modal-title">Ticket # {{data.selectedTicket.id}}</h3>-->
+    <h3>Subject: {{data.selectedTicket.subject}}</h3>
+</div>
+<!--<div class="modal-body col-xs-12 col-md-12">-->
+  <!--<h6>Subject: {{data.selectedTicket.subject}}</h6>-->
+  <!--<div class="well">-->
+    <!--<span ng-bind-html='data.selectedTicket.content'></span>-->
+  <!--</div>-->
+  <!--<h6>By {{data.selectedTicket.ticket_creator}} on {{data.selectedTicket.created_at}}</h6>-->
+  <!--<br>-->
+  <!--<button ng-show="data.replies.length>0" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Replies</button>-->
+  <!--<br>-->
+  <!--<br>-->
+  <!--<div collapse="!isCollapsed" ng-repeat="reply in data.replies">-->
+    <!--<div class="well well-small nav nav-tabs nav-stacked col-xs-12 col-md-10">-->
+      <!--<h6><span ng-bind-html="reply.content"></span>-->
+      <!--By <span>{{reply.created_by}}</span> on <span>{{reply.created_at}}</span></h6>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<div class="modal-footer col-xs-12 col-md-12">
+  <button class="btn btn-success" ng-click="ok()">Accept</button>
+  <button class="btn btn-primary" ng-click="cancel()">Skip</button>
+  <button class="btn btn-danger" ng-click="close()">Close</button>
+</div>
+</div>

@@ -1,0 +1,18 @@
+
+<div ng-click="clicked()">
+			<span class="active-bar"></span>
+			<span class="orange-circle"></span>
+				<h4><strong>{{ticket.subject}}</strong></h4>
+				<p class="middle-gap"><small>
+					<strong>Submitted:</strong>
+					{{ticket.created_at}}
+					<strong>By:</strong>
+					{{ticket.by}}
+				</small></p>
+				<p><small>
+					<strong>QID:</strong>
+					{{ticket.id}}
+					<strong>Comments:</strong>
+					{{ticket.commentCount}}
+				</small></p>
+</div>

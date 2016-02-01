@@ -1,0 +1,61 @@
+<div class="modal-header text-center">
+	<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	<h2 class="blue-color text-uppercase remove-space"><strong>HOw'd WE DO?</strong></h2>
+</div>
+<div class="modal-body">
+	<div class="row">
+		<div  class="custom-offset col-md-9 text-center">
+			<p class="blue-color">
+				Thank you for using mWize to resolve your issue. If you have a second, we'd love to get your feedback.
+			</p>
+			<p class="blue-color">
+				<strong>
+					How would you rate our Specialist?
+				</strong>
+			</p>
+			
+			<div star-rating rating-value="expertRating" max="5" on-rating-selected="rateFunction(rating)">
+			</div>
+			
+			<!--<div class="rating">
+				<img src="/assets/images/rating-active.png" alt="">
+				<img src="/assets/images/rating-active.png" alt="">
+				<img src="/assets/images/rating-active.png" alt="">
+				<img src="/assets/images/rating.png" alt="">
+				<img src="/assets/images/rating.png" alt="">
+			</div>-->
+			<p class="blue-color">
+				<strong>
+					How would you rate your experience with mWize?
+				</strong>
+			</p>
+			<div star-rating rating-value="mwizeRating" max="5" on-rating-selected="rateFunction(rating)">
+			</div>
+			
+			<form role="form">
+				<div class="form-group">
+					<textarea ng-model="feedback" class="form-control text-area" rows="3" placeholder="General Feedback..."></textarea>
+				</div>
+				<button type="button" ng-click="saveFeedback()" class="btn btn-lg btn-big login btn-default text-uppercase semi-bold">Submit feedback</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal-footer pad-bottom-remove">
+	<div class="col-sm-9">
+		<p class="text-left remove-space txt-small">Download our device health and monitoring app to your devices to get diagnosics, and status from anywhere.</p>	
+		<div class="row space-top">
+			<div class="col-sm-4 pad-remove">
+				<a href=""><strong>Learn More »</strong></a>	
+			</div>
+			<div class="col-sm-8">
+				<a href="" class="app-btn google"></a>
+				<a href="" class="app-btn google-play"></a>
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-sm-3">
+		<img src="/assets/images/footer-phone.png" alt="" class="footer-image">
+	</div>
+</div>

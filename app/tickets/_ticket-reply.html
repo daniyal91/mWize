@@ -1,0 +1,25 @@
+<br>
+<div>
+  <h4><span ng-bind="newTicket.totalReplies"></span> Replies</h4>
+  <!--All the replies for the thread goes here-->
+  <div>
+    <div ng-repeat="reply in replies track by $index">
+      <div class="well well-small nav nav-tabs nav-stacked col-xs-12 col-md-8">
+        <span ng-bind-html="reply.content"></span>
+        <br>
+        By <span><i>{{reply.created_by}}</i></span> on <span>{{reply.created_at}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="col-xs-12 col-md-12" ng-if="selectedTicket.status.toLowerCase()!=='closed'&&!collaboratorCheck" >
+  <button class="btn btn-success" ng-if="(userRole.name==='customer') && (selectedTicket.status.toLowerCase()!=='closed')" ng-click="approve()">This solved my problem</button>
+  <h4> Reply: </h4>
+  <text-angular id="reply" rows="5" placeholder="Click here to write your reply...." ng-model="newTicket.newReply"></text-angular>
+  <br>
+  <div class="form-group">
+    <input type="file" ng-file-select="onFileSelect($files)">
+  </div>
+  <a href='' class='btn btn-primary' ng-click='replyTicket()'>Reply</a>
+</div>
